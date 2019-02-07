@@ -1,0 +1,149 @@
+# set up parameters for simulation model
+
+#=============================================================
+# num of simulation/iterations (one value)
+1000
+
+# num of years (one value)
+100
+
+# num of ages (one value)
+12
+
+# num of populations (one value)
+4
+
+# num of mixing
+7
+
+
+# assessment starting year and step.by year (vector)
+21 
+
+1
+
+#=============================================================
+# natural mortality for each area, #column match to num population (vector)
+0.25 0.25 0.25 0.25
+
+# target total mortality for each area, #column match to num population (vector)
+0.35 0.35 0.35 0.35
+0.45 0.45 0.45 0.45
+0.55 0.55 0.55 0.55
+0.65 0.65 0.65 0.65
+
+# LVB growth parameters,shared by all population,3 column, (vector)
+# in order of (Linf, K, to) 
+60.9 0.1686 0
+
+# weight condition factor,shared by all population,2 column, (vector)
+# in order of (alpha, beta)
+0.0000806 2.45
+
+# prop. of female, shared by all population,(one value)
+0.5 
+
+# eggs/per kg female ,shared by all population,(one value)
+19937
+
+# logistic maturity parameters, shared by all population, 3column (vector)
+#(maturity at inf length,curv param, length at inflect of logistic model)
+1.0 0.315 37.864
+
+
+# Ricker recruitment parameter for each population(matrix)
+# Note: #column is 3(fecundity alpha, density depend. beta,intial Rec,  std for recruit.from steepness function)
+# Note: #row match to num population
+# in commented out below is 4 productivity level: low, midlow, midhigh, high (h=0.7,1.1,1.5,1.9)
+
+
+5.226142185E-04	1.511358704E-10	5.835789534E+05	1.352350352E+05	7.996180424E+04  0.6
+9.194953295E-04	2.056642743E-10	1.595232185E+06	2.186436171E+05	2.185782111E+05  0.6
+1.354948364E-03	2.430819952E-10	2.026851605E+06	2.955331554E+05	2.777185680E+05  0.6
+1.820751483E-03	2.716004178E-10	2.275953810E+06	3.695224586E+05	3.118504736E+05  0.6
+
+# gamma parameter for selectivity at age, same for all population, (vector)
+# alpha, beta changed from 2.1 and 0.25
+13.074 1.26 
+
+
+#catchability, same for all area (one number)
+0.0000015
+
+# std error for fishing effort for each area, log normal (vector)
+0.2 0.2 0.2 0.2
+
+# movement parameters, #now and #column = # population (square matrix)
+# row is from population, column is matching to move in area
+# first cell will be pop 1 move in to first area
+
+0	0	0	0
+0.1	0.1	0.1	0.1
+0.25	0.25	0.25	0.25
+0.5	0.5	0.5	0.5
+0.75	0.75	0.75	0.75
+0.75	0.5	0.25	0.1
+0.1	0.25	0.5	0.75
+
+
+# implementation error for TAC, match to #area (vector)
+# only use sd here
+0.1 0.1 0.1 0.1
+
+# std error for observed catch for each area, lognormal (vector)
+0.1 0.1 0.1 0.1
+
+# effective sample size for assessment model
+200
+
+
+#file name for output simulation data
+simData1.txt
+
+#file name for output performance statistics
+performindependent.txt
+
+#file name for output performance statistics
+performpooled.txt
+
+# if output all years catch@age for assessment model (number)
+# 1 is to use all, 0 is not, then you need to provide how many yr  
+0
+
+# if above is 0, then how many yrs data for output for assessment (number)
+# it should smaller than the starting assess year in above defined
+# if above is 1, then this data will be ignored
+20
+
+# output ages range for assessment (vector)
+# first age and last age(not over the number of ages in the top defined)
+3 12
+
+# how many last num of yrs total mortality used for TAC (one number)
+3
+
+# first age of last num of yrs as mean recruitment for TAC (one number)
+10
+
+
+#**************************************************************
+# using random seed,  (one value)
+# 1 is use random seed, 0 is use fixed seed
+1
+
+# use fixed random seed (one value)
+454545
+
+#added by yang
+
+#for linux (for HPC=1, for laptop=0)
+1
+
+#model num
+3
+
+#mix num
+4
+
+#Mot level
+4
